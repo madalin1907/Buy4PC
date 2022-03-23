@@ -1,0 +1,125 @@
+body{
+    background-color: rgb(20, 20, 20);
+    margin: 0;
+    padding: 0;
+    width: 100vh;
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding-left: 70px;
+
+    font-size: 25px;
+    background-color: rgba(64, 64, 68, 0.7);
+}
+
+/*Logo-ul Buy4PC*/
+.Logo{
+    border: 1px white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LogoIMG{
+    margin-top: 10px;
+    margin-left: -37px; /*imaginea este PNG si are padding default in stanga*/
+    height: 70px;
+}
+.LogoIMG:hover{
+    animation: shake 1s;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(13deg); }
+    40% { transform: rotate(-13deg); }
+    50% { transform: rotate(9deg); }
+    60% { transform: rotate(-9deg); }
+    70% { transform: rotate(7deg); }
+    80% { transform: rotate(-7deg); }
+    90% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+  }
+
+
+/*Products + Cart*/
+.MiddleNav{
+    height: 100%;
+    display: flex;
+}
+
+.NavButton{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    color: rgb(241, 200, 111);
+    text-decoration: none;
+
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.NavButton:hover{
+    background-color: #1f1e1e;
+    transition: 1s;
+}
+
+
+/*Dropdown-ul din dreapta navbar-ului*/
+.AccountDropdown{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.DropButton span{
+    color: rgb(241, 200, 111);
+    cursor: pointer;
+}
+
+.DropdownContent {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right:18px;
+    background-color: rgba(64, 64, 68, 0.7);
+    box-shadow: 1px 1px 2px 3px rgba(252, 204, 100, 0.4);
+}
+.DropdownContent a{
+    display: block;
+    color: rgb(241, 200, 111);
+    text-decoration: none;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.DropdownContent a:hover{
+    background-color: #1f1e1e;
+    transition: 0.8s;
+}
+
+.AccountDropdown:hover .DropdownContent{
+    display: block;
+}
+
+.AccountDropdown:hover{
+    background-color: #1f1e1e;
+    transition: 1s;
+}
