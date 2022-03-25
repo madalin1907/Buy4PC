@@ -269,6 +269,9 @@ input::placeholder{
     display: block;
 }
 
+#MobileActive{
+    background-color: var(--gri);
+}
 
 @media (max-width: 420px) {
     .NavBar{
