@@ -269,17 +269,18 @@ input::placeholder{
     display: block;
 }
 
+.MobileDropdownContent a:hover{
+    background-color: var(--negru);
+}
+
 #MobileActive{
     background-color: var(--gri);
 }
+#MobileActive:hover{
+    background-color: var(--negru);
+}
 
 @media (max-width: 420px) {
-    .NavBar{
-        display: none;
-    }
-    .MobileNavBar{
-        display: flex;
-    }
     .Formular{
         padding: 30px;
     }
