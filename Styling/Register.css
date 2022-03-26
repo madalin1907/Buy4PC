@@ -153,12 +153,11 @@ body{
 
 
 .Content{
-    height: 100vh;
+    height: auto;
+    margin-top: 100px;
     display: flex;
-    margin-top: 50px;
     align-items: center;
     justify-content: center;
-    margin-left: 13px; /*compenseaza width-ul scrollbar-ului*/
 }
 
 .Formular{
@@ -300,5 +299,9 @@ input::placeholder{
     }
     .MobileNavBar{
         display: flex;
+    }
+
+    .Content{
+        margin-top: 80px;
     }
 }

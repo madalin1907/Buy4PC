@@ -154,11 +154,11 @@ body{
 
 
 .Content{
-    height: 100vh;
+    height: auto;
+    margin-top: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 120px; /*body are implicit -90 padding-bottom*/
 }
 
 .Formular{
@@ -290,10 +290,10 @@ input::placeholder{
 }
 
 @media (max-width: 800px) {
-    .NavBar{
-        display: none;
+    .NavBar {
+      display: none;
     }
-    .MobileNavBar{
-        display: flex;
+    .MobileNavBar {
+      display: flex;
     }
 }
