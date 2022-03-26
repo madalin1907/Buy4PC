@@ -220,7 +220,7 @@ body{
     padding: 0;
     width: 100%;
     height: 92vh;
-
+    overflow-y: hidden;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
@@ -281,10 +281,6 @@ body{
     margin-bottom: 20px;
 }
 
-#img5{
-    grid-column: 3/span 2;
-    grid-row: 4/ span 2;
-}
 
 .StartShopping{
     display: flex;
@@ -328,17 +324,24 @@ body{
 
 
 .MottoDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column: 2/ span 4;
     grid-row: 3/ span 1;
     padding: 20px;
 }
 .MottoDiv:hover{
-    animation: pulse 1.5s linear;
+    animation: pulse 1.5s linear infinite;
 }
 @keyframes pulse {
     50% { transform: scale(1.07);}
+    95% { transform: scale(1);}
 }
-
+.MottoIMG{
+    width: 100%;
+    height: 100%;
+}
 
 
 .WhatWeSell{
@@ -362,9 +365,9 @@ body{
     height: 70%;
 }
 .WhatWeSell:hover{
-    animation: linegap 0.5s linear;
+    animation: circular 0.7s linear;
 }
-@keyframes linegap {
+@keyframes circular {
     25%{ transform: translate(7px, 0px);}
     50%{ transform: translate(7px, 7px);}
     75%{ transform: translate(0px, 7px);}
@@ -376,4 +379,99 @@ ul{
     padding: 0;
     margin: 0;
     font-size: 20px;
+}
+li:not(:last-child){
+    margin-bottom: 5px;
+}
+
+
+
+
+@media (max-width: 420px) {
+    .MobileDropdownContent{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .NavBar {
+      display: none;
+    }
+    .MobileNavBar {
+      display: flex;
+    }
+    .Container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    body{
+        overflow: auto;
+        height: 100%;
+        width: 100%;
+    }
+
+    #img1, #img2, #img3, #img4{
+        margin: 0;
+        width: 80%;
+        max-width: 550px;
+        height: 300px;
+    }
+
+    #img1{
+        order: 6;
+    }
+    #img2{
+        order: 2;
+    }
+    #img3{
+        display: none;
+    }
+    #img4{
+        order: 4;
+    }
+    .StartShopping{
+        background: none;
+        order: 4;
+    }
+    .WhatWeSell{
+        background: none;
+        order: 3;
+        width: 60%;
+    }
+    .MottoDiv{
+        order: 1;
+    }
+}
+
+@media (max-height: 850px){
+    .GalleryIMG{
+        width: 90%;
+        height: 90%;
+    }
+    .StartShopping{
+        width: 200px;
+        height: 200px;
+    }
+    ul{
+        font-size: 17px;
+    }
+    h2{
+        font-size: 18px;
+    }
+    .StartShopping img{
+        height: 90px;
+        width: 180px;
+    }
+    .WhatWeSell{
+        width: 65%;
+        height: 65%;
+    }
+    .MottoIMG{
+        width: 90%;
+        height: 90%;
+    }
 }

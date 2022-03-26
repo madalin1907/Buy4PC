@@ -8,7 +8,7 @@ body{
     background-color: rgb(20, 20, 20);
     margin: 0;
     padding: 0;
-    
+
     overflow-y: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
@@ -123,7 +123,7 @@ body{
     position: absolute;
     top: 70px;
     right:18px;
-    background-color: rgba(64, 64, 68, 0.7);
+    background-color: rgb(49, 49, 53);
     box-shadow: 1px 1px 2px 3px rgba(252, 204, 100, 0.4);
 }
 .DropdownContent a{
