@@ -8,10 +8,21 @@ body{
     background-color: rgb(20, 20, 20);
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 98vw;
     height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
+}
+
+/*Scrollbar-ul din dreapta paginii*/
+::-webkit-scrollbar{
+    background-color: var(--negru);
+    width: 13px;
+}
+::-webkit-scrollbar-thumb{
+    border: 3px solid var(--negru);
+    border-radius: 50px;
+    background-color: var(--galben);
 }
 
 .NavBar{
@@ -117,7 +128,7 @@ body{
     position: absolute;
     top: 70px;
     right:18px;
-    background-color: rgba(64, 64, 68, 0.7);
+    background-color: rgb(49, 49, 53);
     box-shadow: 1px 1px 2px 3px rgba(252, 204, 100, 0.4);
 }
 .DropdownContent a{
@@ -204,18 +215,154 @@ body{
 
 
 
-
 .MainContainer{
     display: flex;
     flex-direction: column;
-    
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+h1{
+    margin-top: 100px;
+    text-align: center;
+    color: var(--galben);
 }
 
 .SubContainer{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
+.Keyboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    background-color: var(--galben);
+    border-radius: 20px;
+    padding: 10px;
+    gap: 15px;
+
+    width: 500px;
+    height: 460px;
+}
+.Mouse{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    border-radius: 20px;
+    background-color: var(--galben);
+    padding: 10px;
+    gap: 15px;
+
+    width: 350px;
+    height: 680px;
+}
+.Headset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    border-radius: 20px;
+    background-color: var(--galben);
+    padding: 10px;
+    gap: 15px;
+
+    width: 420px;
+    height: 680px;
+}
+
+.Name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.KeyboardIMG{
+    width: 500px;
+    height: 200px;
+}
+
+
+.MouseIMG{
+    width: 230px;
+    height: 400px;
+}
+.HeadsetIMG{
+    width: 400px;
+    height: 400px;
+}
+
+
+
+
+table{
+    color: rgb(223, 203, 117);
+    background-color: black;
+    cursor: default;
+}
+td, th{
+    width: 50%;
+    padding: 3px 7px 3px 7px;
+}
+th:hover, td:hover{
+    background-color: #1a1a1a;
+}
+tr:nth-child(2n+1){
+    background-color:rgb(36, 36, 36);;
+}
+tr:nth-child(2n){
+    background-color:rgb(71, 71, 71)
+}
+
+
+.Price{
+    font-weight:bold;
+    letter-spacing: -2px;
+    font-size: 23px;
+}
+
+
+.Buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.Buttons button:nth-child(1){
+    margin-left: 20px;
+}
+.Buttons button:nth-child(2){
+    margin-right: 20px;
+}
+
+button{
+    background-color: var(--negru);
+    color: var(--galben);
+    border: none;
+    border-radius: 3px;
+
+    padding: 10px;
+    width: 150px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    box-shadow: 3px 4px 2px rgb(68, 66, 66);
+}
+
+button:active{
+    transform: translate(3px, 4px);
+    box-shadow: none;
+}
 
 
 
