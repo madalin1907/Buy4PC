@@ -38,7 +38,7 @@ body{
     padding-left: 70px;
 
     font-size: 25px;
-    background-color: rgba(64, 64, 68, 0.7);
+    background-color: rgb(49, 49, 53);
 }
 
 /*Logo-ul Buy4PC*/
@@ -128,7 +128,7 @@ body{
     position: absolute;
     top: 70px;
     right:18px;
-    background-color: rgba(64, 64, 68, 0.7);
+    background-color: rgb(49, 49, 53);
     box-shadow: 1px 1px 2px 3px rgba(252, 204, 100, 0.4);
 }
 .DropdownContent a{

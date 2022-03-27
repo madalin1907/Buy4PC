@@ -291,7 +291,7 @@ body{
     grid-column: 3/span 2;
     grid-row: 1/span 2;
     
-    background-image: url(../Photos/StartShopBG.png);
+    background-image: url(../Photos/Home/StartShopBG.png);
     
     width: 240px;
     height: 240px;
@@ -354,23 +354,22 @@ body{
     color: rgb(241, 191, 26);
     
 
-    background-image: url(../Photos/ListBG.png);
+    background-image: url(../Photos/Home/ListBG.png);
     background-size: cover;
 
     grid-column: 3/ span 2;
     grid-row: 4/ span 2;
     background-color: var(--gri);
     border-radius: 30px;
-    width: 70%;
-    height: 70%;
+    width: 75%;
+    height: 75%;
 }
 .WhatWeSell:hover{
-    animation: circular 0.7s linear;
+    animation: UpDown 0.5s linear;
 }
-@keyframes circular {
-    25%{ transform: translate(7px, 0px);}
-    50%{ transform: translate(7px, 7px);}
-    75%{ transform: translate(0px, 7px);}
+@keyframes UpDown {
+    50%{ transform: translate(0px, -7px);}
+    100%{ transform: translate(0px, 0px);}
 }
 
 
@@ -383,7 +382,12 @@ ul{
 li:not(:last-child){
     margin-bottom: 5px;
 }
-
+li::before {
+    content: "→ ";
+}
+li::after {
+    content: " ←";
+}
 
 
 
@@ -437,10 +441,16 @@ li:not(:last-child){
         background: none;
         order: 4;
     }
+    .StartShopping:hover{
+        animation: none;
+    }
     .WhatWeSell{
         background: none;
         order: 3;
         width: 60%;
+    }
+    .WhatWeSell:hover{
+        animation: none;
     }
     .MottoDiv{
         order: 1;
@@ -462,6 +472,12 @@ li:not(:last-child){
     #img1, #img2, #img3, #img4{
         height: 180px;
         border-radius: 15px;
+    }
+}
+
+@media (max-height: 670px){
+    .WhatWeSell{
+        background: none;
     }
 }
 

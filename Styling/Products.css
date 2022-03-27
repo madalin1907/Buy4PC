@@ -27,7 +27,7 @@ body{
     padding-left: 70px;
 
     font-size: 25px;
-    background-color: rgba(64, 64, 68, 0.7);
+    background-color: rgb(49, 49, 53);
 }
 
 /*Logo-ul Buy4PC*/
@@ -200,6 +200,27 @@ body{
 #MobileActive:hover{
     background-color: var(--negru);
 }
+
+
+
+
+
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.SubContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+
 
 @media (max-width: 420px) {
     .MobileDropdownContent{
