@@ -8,8 +8,9 @@ body{
     background-color: rgb(20, 20, 20);
     margin: 0;
     padding: 0;
-    width: 98vw;
+    width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
@@ -17,7 +18,7 @@ body{
 /*Scrollbar-ul din dreapta paginii*/
 ::-webkit-scrollbar{
     background-color: var(--negru);
-    width: 13px;
+    width: 14px;
 }
 ::-webkit-scrollbar-thumb{
     border: 3px solid var(--negru);
@@ -151,7 +152,7 @@ body{
 
 
 
-
+/*Navbar-ul pentru telefon/tableta*/
 .MobileLogo{
     height: 75px;
 }
@@ -218,6 +219,8 @@ body{
 .MainContainer{
     display: flex;
     flex-direction: column;
+    margin-left: -6px;
+    padding: 10px;
     padding-bottom: 20px;
     width: 100%;
 }
@@ -281,6 +284,7 @@ h1{
     width: 420px;
     height: 680px;
 }
+
 
 .Name{
     font-size: 20px;
@@ -369,13 +373,13 @@ button:active{
 
 
 
-@media (max-width: 420px) {
+@media (max-width: 560px) {
     .MobileDropdownContent{
         font-size: 20px;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
     .NavBar{
         display: none;
     }

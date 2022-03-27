@@ -16,7 +16,7 @@ body{
 /*Scrollbar-ul din dreapta paginii*/
 ::-webkit-scrollbar{
     background-color: var(--negru);
-    width: 13px;
+    width: 14px;
 }
 ::-webkit-scrollbar-thumb{
     border: 3px solid var(--negru);
@@ -238,7 +238,7 @@ body{
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
     .NavBar{
         display: none;
     }
@@ -246,6 +246,6 @@ body{
         display: flex;
     }
     .Message{
-        padding:20px;
+        padding:50px;
     }
 }
