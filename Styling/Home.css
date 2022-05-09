@@ -193,26 +193,7 @@
     background-color: var(--negru);
 }
 
-@media (max-width: 420px) {
-    .NavBar{
-        display: none;
-    }
-    .MobileNavBar{
-        display: flex;
-    }
-    .MobileDropdownContent{
-        font-size: 20px;
-    }
-}
 
-@media (max-width: 800px) {
-    .NavBar{
-        display: none;
-    }
-    .MobileNavBar{
-        display: flex;
-    }
-}
 
 body{
     background-color: rgb(20, 20, 20);
@@ -302,7 +283,7 @@ body{
     font-size: 30px;
     font-weight: bold;
 
-    transition: 0.5s background-color linear;
+    transition: 0.1s linear;
 }
 
 .StartShopping img{
