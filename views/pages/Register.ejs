@@ -5,46 +5,13 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Madalin"/>
         <title>Register - Buy4PC</title>
-        <link rel="shortcut icon" href="../Photos/TabLogo.png">
-        <link rel="stylesheet" type="text/css" href="../Styling/Register.css"/>
+        <link rel="shortcut icon" href="/static/images/TabLogo.png">
+        <link rel="stylesheet" type="text/css" href="../../static/css/partials/navbar.css"/>
+        <link rel="stylesheet" type="text/css" href="../../static/css/pages/Register.css"/>
     </head>
     
     <body>
-        <nav class = "NavBar">
-            <div class = "Logo">
-                <a href = "Home.html"><img src="../Photos/Buy4PC.png" alt="Buy4PC" class="LogoIMG"></a>
-            </div>
-
-            <div class = "MiddleNav">
-                <a class = "NavButton" href = "Products.html">Products</a>
-                <a class = "NavButton" href = "Wishlist.html">Wishlist</a>
-                <a class = "NavButton" href = "Cart.html">Cart</a>
-            </div>
-
-            <div class = "AccountDropdown">
-                <div class="DropButton"><span>Account</span></div>
-
-                <div class="DropdownContent">
-                    <a href = "Login.html">Login</a>
-                    <a id = "DropActive" href = "Register.html">Register</a>
-                </div>
-            </div>
-        </nav>
-
-        <nav class = "MobileNavBar">
-            <div class = "MobileAccountDropdown">
-                <img src="../Photos/Buy4PC.png" alt="Buy4PC" class="MobileLogo">
-                
-                <div class="MobileDropdownContent">
-                    <a href = "Home.html">Home</a>
-                    <a href = "Products.html">Products</a>
-                    <a href = "Wishlist.html">Wishlist</a>
-                    <a href = "Cart.html">Cart</a>
-                    <a href = "Login.html">Login</a>
-                    <a id = "MobileActive" href = "Register.html">Register</a>
-                </div>
-            </div>
-        </nav>
+        <%- include('../partials/navbar');%>
 
         <main class="Content">
             <form class = "Formular">

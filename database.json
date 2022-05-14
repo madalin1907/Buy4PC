@@ -1,0 +1,115 @@
+[
+    {
+        "category": "Keyboards",
+        "items": [
+            {
+                "name": "Razer BlackWidow V3 Mini HyperSpeed",
+                "image": "Keyboard1.png",
+                "properties": {
+                    "Form Factor": "Mini",
+                    "Connectivity": "Wired, Wireless, Bluetooth",
+                    "Switch": "Razer Green"
+                },
+                "price": 119.99
+            },
+            
+            {
+                "name": "Logitech G915 TKL LIGHTSPEED Wireless",
+                "image": "Keyboard2.png",
+                "properties": {
+                    "Form Factor": "Compact (TKL)",
+                    "Connectivity": "Wireless",
+                    "Switch": "GL Linear"
+                },
+                "price": 159.98
+            },
+
+            {
+                "name": "HyperX Alloy Origins Red Switch",
+                "image": "Keyboard3.png",
+                "properties": {
+                    "Form Factor": "Full",
+                    "Connectivity": "Wired (USB)",
+                    "Switch": "HyperX Red"
+                },
+                "price": 99.99
+            }
+        ]
+    },
+
+    {
+        "category": "Mice",
+        "items": [
+            {
+                "name": "Logitech G102 Lightsync RGB Black",
+                "image": "Mouse1.png",
+                "properties": {
+                    "Connectivity": "Wired (USB)",
+                    "Movement Detection": "Optical",
+                    "DPI": 8000
+                },
+                "price": 22.99
+            },
+            
+            {
+                "name": "Logitech G502 Lightspeed Wireless",
+                "image": "Mouse2.png",
+                "properties": {
+                    "Connectivity": "Wired (USB) / Wireless",
+                    "Movement Detection": "Optical",
+                    "DPI": 25600
+                },
+                "price": 87.99
+            },
+
+            {
+                "name": "AQIRYS Polaris Wireless Black",
+                "image": "Mouse3.png",
+                "properties": {
+                    "Connectivity": "Wireless",
+                    "Movement Detection": "Optical",
+                    "DPI": 16000
+                },
+                "price": 39.99
+            }
+        ]
+    },
+
+    {
+        "category": "Headsets",
+        "items": [
+            {
+                "name": "HyperX Cloud II Wireless",
+                "image": "Headset1.png",
+                "properties": {
+                    "Connectivity": "Wireless",
+                    "Sound": "7.1 Surround",
+                    "Microphone": "Yes"
+                },
+                "price": 88.99
+            },
+            
+            {
+                "name": "HyperX Cloud II 7.1 Gun Metal",
+                "image": "Headset2.png",
+                "properties": {
+                    "Connectivity": "Wired",
+                    "Sound": "7.1 Surround",
+                    "Microphone": "Yes"
+                },
+                "price": 84.99
+            },
+
+            {
+                "name": "Logitech G435 Black",
+                "image": "Headset3.png",
+                "properties": {
+                    "Connectivity": "Wireless",
+                    "Sound": "Stereo",
+                    "Microphone": "Yes"
+                },
+                "price": 67.99
+            }
+        ]
+    }
+]

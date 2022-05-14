@@ -1,0 +1,73 @@
+:root{
+    --galben: rgb(241, 200, 111);
+    --negru: #1f1e1e;
+    --gri: #272727;
+}
+
+body{
+    background-color: rgb(20, 20, 20);
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+
+/*Scrollbar-ul din dreapta paginii*/
+::-webkit-scrollbar{
+    background-color: var(--negru);
+    width: 14px;
+}
+::-webkit-scrollbar-thumb{
+    border: 3px solid var(--negru);
+    border-radius: 50px;
+    background-color: var(--galben);
+}
+
+
+
+.Content{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap:25px;
+}
+
+
+.ErrorMessage{
+    cursor: default;
+    color: var(--galben);
+    font-size: 50px;
+}
+
+.RedirectMessage{
+    cursor: default;
+    color: var(--galben);
+    font-size: 35px;
+}
+
+
+@media (max-width: 950px) {
+    .ErrorMessage{
+        font-size: 40px;
+    }
+    .RedirectMessage{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    .ErrorMessage{
+        font-size: 25px;
+    }
+    .RedirectMessage{
+        font-size: 15px;
+    }
+}

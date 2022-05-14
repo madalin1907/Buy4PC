@@ -1,0 +1,72 @@
+:root{
+    --galben: rgb(241, 200, 111);
+    --negru: #1f1e1e;
+    --gri: #272727;
+}
+
+body{
+    background-color: rgb(20, 20, 20);
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+
+/*Scrollbar-ul din dreapta paginii*/
+::-webkit-scrollbar{
+    background-color: var(--negru);
+    width: 14px;
+}
+::-webkit-scrollbar-thumb{
+    border: 3px solid var(--negru);
+    border-radius: 50px;
+    background-color: var(--galben);
+}
+
+
+
+.Content{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.Message{
+    cursor: default;
+    color: var(--galben);
+    font-size: 50px;
+    animation: size_modify 2s linear infinite alternate;
+}
+
+@keyframes size_modify {
+    0% {transform: scale(1); }
+    100% {transform: scale(1.2); color: rgb(248, 222, 167); }
+}
+
+
+
+
+@media (max-width: 420px) {
+    .MobileDropdownContent{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 950px) {
+    .NavBar{
+        display: none;
+    }
+    .MobileNavBar{
+        display: flex;
+    }
+    .Message{
+        padding:50px;
+    }
+}

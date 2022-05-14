@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Madalin"/>
+        <title>Login - Buy4PC</title>
+        <link rel="shortcut icon" href="/static/images/TabLogo.png">
+        <link rel="stylesheet" type="text/css" href="../../static/css/partials/navbar.css"/>
+        <link rel="stylesheet" type="text/css" href="../../static/css/pages/Login.css"/>
+    </head>
+    
+    <body>
+        <%- include('../partials/navbar');%>
+
+        <main class="Content">
+            <form class = "Formular">
+                <label for="mail">Email</label>
+                <input type="email" id="mail" name="email" placeholder="Enter your email here." required>
+            
+                <label for="pass">Password</label>
+                <input type="password" id="pass" name="pass" placeholder="Enter your password here." required>
+                
+                <div class="Remember">
+                    <input type="checkbox" id="SaveAcc" name="SaveAcc" value="SaveAcc">
+                    <label for="SaveAcc">Remember me</label>
+                </div>
+
+                <button class="SubmitButton" type="submit">Login</button>
+            </form>
+
+            <div class="Reset">
+                <span>Forgot your password? Send reset code to:</span>
+                <ol>
+                    <li><span>Email</span></li>
+                    <li>Phone number</li>
+                </ol>
+            </div>
+        </main>
+        <br>
+    </body>
+</html>
