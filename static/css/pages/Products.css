@@ -2,10 +2,12 @@
     --galben: rgb(241, 200, 111);
     --negru: #1f1e1e;
     --gri: #272727;
+
+    --bgcolor: rgb(20, 20, 20);
 }
 
 body{
-    background-color: rgb(20, 20, 20);
+    background-color: var(--bgcolor);
     margin: 0;
     padding: 0;
     
@@ -17,17 +19,14 @@ body{
 
 /*Scrollbar-ul din dreapta paginii*/
 ::-webkit-scrollbar{
-    overflow-y: overlay;
     background-color: var(--negru);
     width: 14px;
 }
 ::-webkit-scrollbar-thumb{
-    overflow-y: overlay;
     border: 3px solid var(--negru);
     border-radius: 50px;
     background-color: var(--galben);
 }
-
 
 
 
@@ -231,14 +230,5 @@ button:active{
     .HeadsetIMG{
         width: 95%;
         height: 44%;
-    }
-}
-
-@media (max-width: 950px) {
-    .NavBar{
-        display: none;
-    }
-    .MobileNavBar{
-        display: flex;
     }
 }

@@ -57,10 +57,3 @@ Array.from(modes).forEach(mode => {
     })   
 });
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
-
-
-
-
-setTimeout(()=>
-    window.location = "../", 5000
-)

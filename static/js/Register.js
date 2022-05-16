@@ -27,7 +27,7 @@ function switchMode(light){
         document.documentElement.style.setProperty('--gri', '#272727');
         document.documentElement.style.setProperty('--negru', '#1f1e1e');
         document.documentElement.style.setProperty('--galben', 'rgb(241, 200, 111)');
-        
+
         switchButtons[0].textContent = "Switch to Light Mode";
         switchButtons[1].textContent = "Switch to Light Mode";
 
@@ -57,10 +57,3 @@ Array.from(modes).forEach(mode => {
     })   
 });
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
-
-
-
-
-setTimeout(()=>
-    window.location = "../", 5000
-)

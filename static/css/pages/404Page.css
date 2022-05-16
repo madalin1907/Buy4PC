@@ -2,10 +2,12 @@
     --galben: rgb(241, 200, 111);
     --negru: #1f1e1e;
     --gri: #272727;
+
+    --bgcolor: rgb(20, 20, 20);
 }
 
 body{
-    background-color: rgb(20, 20, 20);
+    background-color: var(--bgcolor);
     margin: 0;
     padding: 0;
 
@@ -54,7 +56,7 @@ body{
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 1040px) {
     .ErrorMessage{
         font-size: 40px;
     }

@@ -2,10 +2,12 @@
     --galben: rgb(241, 200, 111);
     --negru: #1f1e1e;
     --gri: #272727;
+
+    --bgcolor: rgb(20, 20, 20);
 }
 
 body{
-    background-color: rgb(20, 20, 20);
+    background-color: var(--bgcolor);
     margin: 0;
     padding: 0;
 
@@ -85,7 +87,7 @@ input::placeholder{
     font-size: 17px;
     font-weight: bold;
 
-    box-shadow: 3px 4px 2px rgb(0, 0, 0);
+    box-shadow: 3px 4px 2px black;
 }
 
 .SubmitButton:active{
@@ -102,22 +104,13 @@ input::placeholder{
 
 
 
-@media (max-width: 26.25rem) {
+@media (max-width: 420px) {
     .Formular{
         padding: 30px;
     }
-    .MobileDropdownContent{
-        font-size: 20px;
-    }
 }
 
-@media (max-width: 59.3rem) {
-    .NavBar{
-        display: none;
-    }
-    .MobileNavBar{
-        display: flex;
-    }
+@media (max-width: 1040px) {
     .Content{
         margin-top: 80px;
     }

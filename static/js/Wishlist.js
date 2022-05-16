@@ -6,6 +6,7 @@ window.onload = function() {
 
 function switchMode(light){
     let switchButtons = document.getElementsByClassName("SwitchMode");
+    let message = document.getElementsByClassName("Message")[0];
 
     let dropdown1 = document.getElementsByClassName("MobileDropdownContent")[0];
     let dropdown2 = document.getElementsByClassName("DropdownContent")[0];
@@ -15,9 +16,11 @@ function switchMode(light){
         document.documentElement.style.setProperty('--gri', '#4e4e4e');
         document.documentElement.style.setProperty('--negru', '#333232');
         document.documentElement.style.setProperty('--galben', 'rgb(236, 179, 56)');
-        
+
         switchButtons[0].textContent = "Switch to Dark Mode";
         switchButtons[1].textContent = "Switch to Dark Mode";
+
+        message.style.color = "var(--gri)";
 
         dropdown1.style.boxShadow = "0px 0px 3px 3px var(--gri)";
         dropdown2.style.boxShadow = "0px 0px 3px 3px var(--gri)";
@@ -27,9 +30,11 @@ function switchMode(light){
         document.documentElement.style.setProperty('--gri', '#272727');
         document.documentElement.style.setProperty('--negru', '#1f1e1e');
         document.documentElement.style.setProperty('--galben', 'rgb(241, 200, 111)');
-        
+
         switchButtons[0].textContent = "Switch to Light Mode";
         switchButtons[1].textContent = "Switch to Light Mode";
+
+        message.style.color = "var(--galben)";
 
         dropdown1.style.boxShadow = "0px 0px 3px 3px rgba(252, 204, 100, 0.4)";
         dropdown2.style.boxShadow = "0px 0px 3px 3px rgba(252, 204, 100, 0.4)";
@@ -57,10 +62,3 @@ Array.from(modes).forEach(mode => {
     })   
 });
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
-
-
-
-
-setTimeout(()=>
-    window.location = "../", 5000
-)

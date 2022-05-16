@@ -6,12 +6,16 @@
         <meta name="author" content="Madalin"/>
         <title>Error 404 - Buy4PC</title>
         <link rel="shortcut icon" href="/static/images/TabLogo.png">
+        <link rel="stylesheet" type="text/css" href="../../static/css/partials/navbar.css"/>
         <link rel="stylesheet" type="text/css" href="../../static/css/pages/404Page.css"/>
     </head>
     
     <body>
+        <%- include('../partials/navbar');%>
+
         <main class="Content">
             <span class="ErrorMessage">Error 404. Page not found.</span>
+            <img src="../../static/images/404.gif" alt = "Loading GIF">
             <span class="RedirectMessage">You will be redirected to Home page in 5 seconds.</span>
         </main>
     </body>
