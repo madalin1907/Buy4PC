@@ -1,5 +1,5 @@
 :root{
-    --galben: rgb(241, 200, 111);
+    --galben: rgb(241, 185, 111);
     --negru: #1f1e1e;
     --gri: #272727;
 
@@ -160,7 +160,6 @@ body{
 
     color: rgb(241, 191, 26);
     
-
     background-image: url(../../images/Home/ListBG.png);
     background-size: cover;
 

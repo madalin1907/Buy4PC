@@ -43,22 +43,28 @@ function switchMode(light){
 
 
 
-
 modes = document.getElementsByClassName("SwitchMode");
 
 Array.from(modes).forEach(mode => {
     mode.addEventListener("click", () =>{
         let lightMode = localStorage.getItem("lightMode");
-
-        if (lightMode === "true"){
-            localStorage.setItem("lightMode", "false");
-            lightMode = "false";
-        }
-        else{
-            localStorage.setItem("lightMode", "true");
-            lightMode = "true";
-        }
+        lightMode = lightMode === "true" ? "false" : "true";
+        localStorage.setItem("lightMode", lightMode);
         switchMode(lightMode);
     })   
+});
+
+
+
+document.addEventListener("keydown", (e) =>{
+    let lightMode = localStorage.getItem("lightMode");
+    if (e.key.toUpperCase() === "D" && lightMode === "true") {
+        localStorage.setItem("lightMode", "false");
+        switchMode("false");
+    }
+    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+        localStorage.setItem("lightMode", "true");
+        switchMode("true");
+    }
 });
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////

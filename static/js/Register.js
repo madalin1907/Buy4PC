@@ -1,4 +1,4 @@
-///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
+//////////////////////////////   Dark Mode / Light Mode   //////////////////////////////
 window.onload = function() {
     switchMode(localStorage.getItem("lightMode"));
 };
@@ -38,22 +38,177 @@ function switchMode(light){
 
 
 
-
 modes = document.getElementsByClassName("SwitchMode");
 
 Array.from(modes).forEach(mode => {
     mode.addEventListener("click", () =>{
         let lightMode = localStorage.getItem("lightMode");
-
-        if (lightMode === "true"){
-            localStorage.setItem("lightMode", "false");
-            lightMode = "false";
-        }
-        else{
-            localStorage.setItem("lightMode", "true");
-            lightMode = "true";
-        }
+        lightMode = lightMode === "true" ? "false" : "true";
+        localStorage.setItem("lightMode", lightMode);
         switchMode(lightMode);
     })   
 });
-///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
+
+
+
+document.addEventListener("keydown", (e) =>{
+    let lightMode = localStorage.getItem("lightMode");
+    if (e.key.toUpperCase() === "D" && lightMode === "true") {
+        localStorage.setItem("lightMode", "false");
+        switchMode("false");
+    }
+    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+        localStorage.setItem("lightMode", "true");
+        switchMode("true");
+    }
+});
+
+
+form = document.getElementsByClassName("Formular")[0];
+form.addEventListener("keydown", (e) =>{
+    e.stopPropagation();
+})
+//////////////////////////////   Dark Mode / Light Mode   //////////////////////////////
+
+
+
+
+
+
+
+////////////////////////// Register validation //////////////////////////
+
+const content = document.getElementsByClassName("Content")[0];
+const submitButton = document.getElementsByClassName("SubmitButton")[0];
+
+submitButton.addEventListener("click", (e) =>{
+    e.preventDefault();
+
+    const firstName = document.getElementById("first_name").value; 
+    if (!(/^[a-zA-Z]+([ -]?[a-zA-Z]+)$/.test(firstName)) && !document.getElementsByClassName("warning").length){
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.textContent = "Invalid first name.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 1200)
+
+        return;
+    }
+
+    const lastName = document.getElementById("last_name").value; 
+    if (!(/^[a-zA-Z]+([ -]?[a-zA-Z]+)$/.test(lastName)) && !document.getElementsByClassName("warning").length){
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.textContent = "Invalid last name.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 1200)
+
+        return;
+    } 
+    
+    const email = document.getElementById("email").value; 
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) && !document.getElementsByClassName("warning").length){
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.textContent = "Invalid email.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 1200)
+
+        return;
+    } 
+
+    const password = document.getElementById("password").value; 
+    if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/.test(password)) && !document.getElementsByClassName("warning").length){
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.style.animation = "swipe 5s";
+        warning.style.padding = "15px";
+        warning.style.margin = "0px 15px 0px 15px";
+        warning.textContent = "The password must contain at least 7 characters, including 1 uppercase letter, 1 lowercase letter, and 1 digit.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 4500)
+
+        return;
+    }
+
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword && !document.getElementsByClassName("warning").length) {
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.textContent = "Passwords do not match.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 1200)
+
+        return;
+    }
+    
+    let gender = document.querySelector('input[name="gender"]:checked');
+    if (!gender && !document.getElementsByClassName("warning").length){
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.textContent = "Select your gender.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 1200)
+
+        return;
+    }
+    gender = gender.value;
+
+    const user = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "password": password,
+        "gender": gender,
+        "admin": "no"
+    }
+    
+    fetch("/users/add", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(user)
+    })
+    .then(res => res.text())
+    .then(data => addedUser = data)
+    .then(() =>{
+        if (addedUser === "true"){
+            const warning = document.createElement("div");
+            warning.classList.add("success");
+            warning.textContent = "Account created successfully.";
+            content.append(warning);
+            
+            setTimeout(() =>{
+                warning.remove();
+                window.location = "../login";
+            }, 2000)
+        }
+        else{
+            const warning = document.createElement("div");
+            warning.classList.add("warning");
+            warning.textContent = "This email is currently in use.";
+            content.append(warning);
+            
+            setTimeout(() =>{
+                warning.remove();
+            }, 1200)
+        }
+    })
+})

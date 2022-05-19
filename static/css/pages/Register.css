@@ -10,7 +10,7 @@ body{
     background-color: var(--bgcolor);
     margin: 0;
     padding: 0;
-
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
@@ -101,6 +101,61 @@ input::placeholder{
     gap: 5px;
 }
 
+
+
+.warning{
+    text-align: center;
+
+    background-color: var(--negru);
+    border: 2px solid red;
+    box-shadow:  0px 0px 10px 3px red, inset 0px 0px 10px 3px red;
+    color: red;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    padding: 15px 45px 15px 45px;
+    
+    position: fixed;
+    top: -75px;
+
+    animation: swipe 1.2s;
+}
+
+@keyframes swipe {
+    10% {top: 80px; }
+    80% {top: 80px; }
+    100% {top: -75px; }
+}
+
+
+
+.success{
+    text-align: center;
+
+    background-color: var(--negru);
+    border: 2px solid rgb(18, 192, 2);
+    box-shadow:  0px 0px 10px 3px rgb(18, 192, 2), inset 0px 0px 10px 3px rgb(18, 192, 2);
+    color: rgb(18, 192, 2);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    padding: 15px 45px 15px 45px;
+    
+    position: fixed;
+    top: -75px;
+
+    animation: swipe 2s;
+}
+
+@keyframes swipe {
+    10% {top: 80px; }
+    80% {top: 80px; }
+    100% {top: -75px; }
+}
 
 
 

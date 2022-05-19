@@ -38,22 +38,96 @@ function switchMode(light){
 
 
 
-
 modes = document.getElementsByClassName("SwitchMode");
 
 Array.from(modes).forEach(mode => {
     mode.addEventListener("click", () =>{
         let lightMode = localStorage.getItem("lightMode");
-
-        if (lightMode === "true"){
-            localStorage.setItem("lightMode", "false");
-            lightMode = "false";
-        }
-        else{
-            localStorage.setItem("lightMode", "true");
-            lightMode = "true";
-        }
+        lightMode = lightMode === "true" ? "false" : "true";
+        localStorage.setItem("lightMode", lightMode);
         switchMode(lightMode);
     })   
 });
+
+
+
+document.addEventListener("keydown", (e) =>{
+    let lightMode = localStorage.getItem("lightMode");
+    if (e.key.toUpperCase() === "D" && lightMode === "true") {
+        localStorage.setItem("lightMode", "false");
+        switchMode("false");
+    }
+    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+        localStorage.setItem("lightMode", "true");
+        switchMode("true");
+    }
+});
+
+
+form = document.getElementsByClassName("Formular")[0];
+form.addEventListener("keydown", (e) =>{
+    e.stopPropagation();
+})
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
+
+
+
+
+
+const content = document.getElementsByClassName("Content")[0];
+const submitButton = document.getElementsByClassName("SubmitButton")[0];
+
+submitButton.addEventListener("click", (e) =>{
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    if (email && password){
+        fetch(`/users/check/${email}/${password}`)
+        .then(res => res.json())
+        .then(data => checkedUser = data)
+        .then(() => {
+            if (checkedUser.loginStatus === "badEmail"){
+                const warning = document.createElement("div");
+                warning.classList.add("warning");
+                warning.style.animation = "swipe 3s";
+                warning.textContent = "There is no account with that email adress.";
+                content.append(warning);
+                
+                setTimeout(() =>{
+                    warning.remove();
+                }, 3000)
+
+                return;
+            }
+            if (checkedUser.loginStatus === "badPassword"){
+                const warning = document.createElement("div");
+                warning.classList.add("warning");
+                warning.textContent = "Incorrect password.";
+                content.append(warning);
+                
+                setTimeout(() =>{
+                    warning.remove();
+                }, 1200)
+
+                return;
+            }
+            if (checkedUser.loginStatus === "good"){
+                localStorage.setItem("user", JSON.stringify(checkedUser));
+                window.location = "../";
+            }
+        }
+    )}
+    else{
+        const warning = document.createElement("div");
+        warning.classList.add("warning");
+        warning.style.animation = "swipe 2s";
+        warning.textContent = "Complete both fields.";
+        content.append(warning);
+        
+        setTimeout(() =>{
+            warning.remove();
+        }, 2000)
+    }
+})

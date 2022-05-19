@@ -52,23 +52,29 @@ function switchMode(light){
 
 
 
-
 modes = document.getElementsByClassName("SwitchMode");
 
 Array.from(modes).forEach(mode => {
     mode.addEventListener("click", () =>{
         let lightMode = localStorage.getItem("lightMode");
-
-        if (lightMode === "true"){
-            localStorage.setItem("lightMode", "false");
-            lightMode = "false";
-        }
-        else{
-            localStorage.setItem("lightMode", "true");
-            lightMode = "true";
-        }
+        lightMode = lightMode === "true" ? "false" : "true";
+        localStorage.setItem("lightMode", lightMode);
         switchMode(lightMode);
     })   
+});
+
+
+
+document.addEventListener("keydown", (e) =>{
+    let lightMode = localStorage.getItem("lightMode");
+    if (e.key.toUpperCase() === "D" && lightMode === "true") {   
+        localStorage.setItem("lightMode", "false");
+        switchMode("false");
+    }
+    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+        localStorage.setItem("lightMode", "true");
+        switchMode("true");
+    }
 });
 ///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
 
@@ -180,3 +186,72 @@ fetch("../products/read")
         }
     });
 })
+
+
+
+
+
+const specialists = ["Tom", "Andrew", "Emma", "Michael", "Robert", "Chris", "Kate"];
+
+setTimeout(() => {
+    helpButton = document.createElement("div");
+    helpButton.classList.add("helpButton");
+    helpButton.textContent = "Support";
+    document.body.append(helpButton);
+
+    helpButton.addEventListener("click", () =>{
+        let testHelpBox = document.getElementsByClassName("helpBox")[0];
+        if (testHelpBox)
+            testHelpBox.style.display = "flex";
+        else {
+            helpButton.style.display = "none";
+            
+            let helpBox = document.createElement("div");
+            helpBox.classList.add("helpBox");
+            
+            let closeButton = document.createElement("img");
+            closeButton.src = "../../static/images/Icons/Close.png";
+            closeButton.style.position = "absolute";
+            closeButton.style.top = "5px";
+            closeButton.style.right = "7px";
+            closeButton.style.cursor = "pointer";
+            closeButton.title = "Close";
+            helpBox.append(closeButton);
+
+            let minimizeButton = document.createElement("img");
+            minimizeButton.src = "../../static/images/Icons/Minimize.png";
+            minimizeButton.style.position = "absolute";
+            minimizeButton.style.top = "-3px";
+            minimizeButton.style.right = "45px";
+            minimizeButton.style.cursor = "pointer";
+            minimizeButton.title = "Minimize";
+            helpBox.append(minimizeButton);
+
+            let specialistMessage = document.createElement("span");
+            let specialistIndex = Math.floor(Math.random() * specialists.length);
+            specialistMessage.textContent = `Hello, here is Buy4PC specialist ${specialists[specialistIndex]}. How can I help you?`;
+            specialistMessage.style.textAlign = "center";
+            specialistMessage.style.cursor = "default";
+            helpBox.append(specialistMessage);
+
+            let userMessage = document.createElement("textarea");
+            userMessage.classList.add("userMessage");
+            userMessage.addEventListener("keydown", (e) =>{
+                e.stopPropagation();
+            })
+            helpBox.append(userMessage);
+
+            document.body.append(helpBox);
+
+            closeButton.addEventListener("click", () =>{
+                helpBox.remove();
+                helpButton.style.display = "flex";
+            })
+
+            minimizeButton.addEventListener("click", () =>{
+                helpBox.style.display = "none";
+                helpButton.style.display = "flex";
+            })
+        }
+    })  
+}, 2500)

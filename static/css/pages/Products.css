@@ -191,6 +191,66 @@ button:active{
 
 
 
+.helpButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+
+    font-size: 20px;
+    font-family: bold sans;
+
+    background-color: var(--galben);
+    border: 2px solid red;
+    box-shadow:  0px 0px 10px 3px red, inset 0px 0px 10px 1px red;
+    
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    animation: fade 1s;
+} 
+
+.helpBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+
+    background-color: var(--galben);
+    border: 2px solid red;
+    box-shadow:  0px 0px 10px 3px red, inset 0px 0px 10px 1px red;
+
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    animation: fade 1s;
+}
+
+.userMessage{
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    width: 285px;
+    height: 60px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% { opacity: 1; }
+}
 
 
 
