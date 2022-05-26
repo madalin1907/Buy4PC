@@ -10,7 +10,8 @@
                     "Connectivity": "Wired, Wireless, Bluetooth",
                     "Switch": "Razer Green"
                 },
-                "price": 119.99
+                "price": 119.99,
+                "stock": 25
             },
             
             {
@@ -21,7 +22,8 @@
                     "Connectivity": "Wireless",
                     "Switch": "GL Linear"
                 },
-                "price": 159.99
+                "price": 159.99,
+                "stock": 0
             },
 
             {
@@ -32,7 +34,8 @@
                     "Connectivity": "Wired (USB)",
                     "Switch": "HyperX Red"
                 },
-                "price": 99.99
+                "price": 99.99,
+                "stock": 17
             }
         ]
     },
@@ -48,7 +51,8 @@
                     "Movement Detection": "Optical",
                     "DPI": 8000
                 },
-                "price": 22.99
+                "price": 22.99,
+                "stock": 14
             },
             
             {
@@ -59,7 +63,8 @@
                     "Movement Detection": "Optical",
                     "DPI": 25600
                 },
-                "price": 87.99
+                "price": 87.99,
+                "stock": 45
             },
 
             {
@@ -70,7 +75,8 @@
                     "Movement Detection": "Optical",
                     "DPI": 16000
                 },
-                "price": 39.99
+                "price": 39.99,
+                "stock": 21
             }
         ]
     },
@@ -86,7 +92,8 @@
                     "Sound": "7.1 Surround",
                     "Microphone": "Yes"
                 },
-                "price": 88.99
+                "price": 88.99,
+                "stock": 51
             },
             
             {
@@ -97,7 +104,8 @@
                     "Sound": "7.1 Surround",
                     "Microphone": "Yes"
                 },
-                "price": 84.99
+                "price": 84.99,
+                "stock": 7
             },
 
             {
@@ -108,7 +116,8 @@
                     "Sound": "Stereo",
                     "Microphone": "Yes"
                 },
-                "price": 67.99
+                "price": 67.99,
+                "stock": 14
             }
         ]
     }

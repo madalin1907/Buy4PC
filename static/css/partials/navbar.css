@@ -236,6 +236,9 @@
     .MobileDropdownContent{
         font-size: 20px;
     }
+    .MobileLogo{
+        margin-left: -30px;
+    }
 }
 
 @media (max-width: 1250px) {

@@ -14,16 +14,38 @@
         <%- include('../partials/navbar');%>
 
         <main class = "MainContainer">
-            <h1>Keyboards</h1>
-            <div class="SubContainer", id="Keyboards"></div>
+            <div class="categoriesMessage">
+                What are you looking for?
+            </div>
+            <div class = "showingCategories">
+                <div>
+                    <input type="checkbox" name="showKeyboards" value="showKeyboards" checked>
+                    <label for="showKeyboards">Keyboards</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="showMice" value="showMice" checked>
+                    <label for="showMice">Mice</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="showHeadsets" value="showHeadsets" checked>
+                    <label for="showHeadsets">Headsets</label>
+                </div>
+            </div>
 
+            <div class = "KeyboardsContainer">
+                <h1>Keyboards</h1>
+                <div class="SubContainer", id="Keyboards"></div>
+            </div>
 
-            <h1>Mice</h1>
-            <div class="SubContainer", id="Mice"></div>
+            <div class = "MiceContainer">
+                <h1>Mice</h1>
+                <div class="SubContainer", id="Mice"></div>
+            </div>
 
-
-            <h1>Headsets</h1>
-            <div class="SubContainer", id="Headsets"></div>
+            <div class = "HeadsetsContainer">
+                <h1>Headsets</h1>
+                <div class="SubContainer", id="Headsets"></div>
+            </div>
         </main>
         
         <br>

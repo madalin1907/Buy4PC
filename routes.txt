@@ -1,8 +1,69 @@
-/             -> încarcă pagina Home
-/products     -> încarcă pagina Products
-/wishlist     -> încarcă pagina Wishlist
-/cart         -> încarcă pagina Cart
-/login        -> încarcă pagina Login
-/register     -> încarcă pagina Register
-/account      -> încarcă pagina Account
-/*            -> încarcă pagina 404 dacă se accesează o rută inexistentă
+- - - - - - - - - - - - RUTE PENTRU ÎNCĂRCAREA PAGINILOR WEB - - - - - - - - - - - -
+
+- - - GET - - -
+
+/             -> Încarcă pagina Home (nu primește niciun parametru).
+/products     -> Încarcă pagina Products (nu primește niciun parametru).
+/wishlist     -> Încarcă pagina Wishlist (nu primește niciun parametru).
+/cart         -> Încarcă pagina Cart (nu primește niciun parametru).
+/login        -> Încarcă pagina Login (nu primește niciun parametru).
+/register     -> Încarcă pagina Register (nu primește niciun parametru).
+/account      -> Încarcă pagina Account (nu primește niciun parametru).
+/*            -> Încarcă pagina 404 dacă se accesează o rută inexistentă (nu primește niciun parametru).
+
+
+
+
+
+- - - - - - - - - - - - - - - - RUTE PENTRU PRODUSE - - - - - - - - - - - - - - - -
+
+- - - GET - - -
+
+/products/read -> Returnează un array cu toate produsele din baza de date (nu primește niciun parametru).
+
+
+
+
+
+- - - - - - - - - - - - - - - RUTE PENTRU UTILIZATORI - - - - - - - - - - - - - - -
+
+- - - GET - - -
+
+/users/check/:email  -> Primește ca parametru prin URL un string (email) și verifică dacă acesta este 
+                        asociat unui cont. Dacă da, se returnează user-ul respectiv. În caz contrar, se
+                        returnează un JSON cu o singură cheie, "email", cu valoarea "notFound".
+
+
+
+- - - POST - - -
+
+/users/add       -> Primește ca parametru prin body un obiect JSON (noul user) și verifică dacă valoarea asociată
+                    cheii "email" se găsește deja în baza de date. Dacă nu se găsește, se adaugă utilizatorul în
+                    baza de date. Se returnează true dacă utilizatorul a fost adăugat și false în caz contrar 
+                    (răspunsul este de tip bool).
+
+
+
+- - - PUT - - -
+
+/users/edit/firstName/:email/:firstName  -> Primește ca parametri prin URL 2 string-uri (un email și un prenume) și 
+                                            modifică valoarea asociată cheii "firstName" a utilizatorului corespunzător.
+                                            Nu returnează niciun răspuns.
+
+
+/users/edit/lastName/:email/:lastName    -> Primește ca parametri prin URL 2 string-uri (un email și un nume) și modifică
+                                            valoarea asociată cheii "lastName" a utilizatorului corespunzător.
+                                            Nu returnează niciun răspuns.
+
+
+
+/users/edit/gender/:email/:gender    -> Primește ca parametri prin URL 2 string-uri (un email și un gen) și modifică
+                                        valoarea asociată cheii "gender" a utilizatorului corespunzător.
+                                        Nu returnează niciun răspuns.
+
+
+
+- - - DELETE - - -
+
+/users/delete/:email -> Primește ca parametru prin URL un string (email) și șterge din baza de date
+                        utilizatorul cu respectivul email. Nu returnează niciun răspuns.

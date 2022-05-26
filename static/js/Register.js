@@ -175,7 +175,7 @@ submitButton.addEventListener("click", (e) =>{
     
 
     
-    if (!document.getElementsByClassName("warning").length) {
+    if (!document.getElementsByClassName("warning").length && !document.getElementsByClassName("success").length) {
         const user = {
             "firstName": firstName,
             "lastName": lastName,
@@ -202,7 +202,7 @@ submitButton.addEventListener("click", (e) =>{
                 setTimeout(() =>{
                     warning.remove();
                     window.location = "../login";
-                }, 2000)
+                }, 1000)
             }
             else{
                 const warning = document.createElement("div");

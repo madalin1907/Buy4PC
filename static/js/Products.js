@@ -12,6 +12,9 @@ function switchMode(light){
 
     let dropdown1 = document.getElementsByClassName("MobileDropdownContent")[0];
     let dropdown2 = document.getElementsByClassName("DropdownContent")[0];
+    
+    let categoriesMessage = document.getElementsByClassName("categoriesMessage")[0];
+    let showingCategories = document.getElementsByClassName("showingCategories")[0];
 
     if (light === "true") {
         document.documentElement.style.setProperty('--bgcolor', 'rgb(247, 236, 214)');
@@ -30,6 +33,9 @@ function switchMode(light){
 
         dropdown1.style.boxShadow = "0px 0px 3px 3px var(--gri)";
         dropdown2.style.boxShadow = "0px 0px 3px 3px var(--gri)";
+
+        categoriesMessage.style.color = "var(--negru)";
+        showingCategories.style.color = "var(--negru)";
     }
     else {
         document.documentElement.style.setProperty('--bgcolor', 'rgb(20, 20, 20)');
@@ -48,6 +54,9 @@ function switchMode(light){
 
         dropdown1.style.boxShadow = "0px 0px 3px 3px rgba(252, 204, 100, 0.4)";
         dropdown2.style.boxShadow = "0px 0px 3px 3px rgba(252, 204, 100, 0.4)";
+
+        categoriesMessage.style.color = "var(--galben)";
+        showingCategories.style.color = "var(--galben)";
     }
 }
 
@@ -162,9 +171,17 @@ fetch("../products/read")
                 buttons.classList.add("Buttons")
 
                 const addCart = document.createElement("button");
-                addCart.classList.add("AddCart")
-                addCart.textContent = "Add to Cart";
+                if (product["stock"] === 0){
+                    addCart.classList.add("UnavailableProduct")
+                    addCart.textContent = "Unavailable";
+                }
+                else{
+                    addCart.classList.add("AddCart")
+                    addCart.textContent = "Add to Cart";
+                }
                 buttons.append(addCart);
+
+
 
                 const addWishlist = document.createElement("button");
                 addWishlist.classList.add("AddWishlist");
@@ -180,13 +197,47 @@ fetch("../products/read")
         else {
             let span = document.createElement("span");
 
-            span.textContent = `${categoryName} category has no available products at this moment.`;
+            span.textContent = `Buy4PC offer doesn't contain any ${categoryName} at this moment.`;
             span.classList.add("UnavailableMessage");
-
+            
             SubContainer.append(span);
         }
     });
 })
+
+
+
+
+
+const KeyboardsContainer = document.getElementsByClassName("KeyboardsContainer")[0];
+const showKeyboards = document.getElementsByName("showKeyboards")[0];
+showKeyboards.addEventListener("change", () =>{
+    if (showKeyboards.checked)
+        KeyboardsContainer.style.display = "flex";
+    else
+        KeyboardsContainer.style.display = "none";
+})
+
+
+const MiceContainer = document.getElementsByClassName("MiceContainer")[0];
+const showMice = document.getElementsByName("showMice")[0];
+showMice.addEventListener("change", () =>{
+    if (showMice.checked)
+        MiceContainer.style.display = "flex";
+    else
+        MiceContainer.style.display = "none";
+})
+
+
+const HeadsetsContainer = document.getElementsByClassName("HeadsetsContainer")[0];
+const showHeadsets = document.getElementsByName("showHeadsets")[0];
+showHeadsets.addEventListener("change", () =>{
+    if (showHeadsets.checked)
+        HeadsetsContainer.style.display = "flex";
+    else
+        HeadsetsContainer.style.display = "none";
+})
+
 
 
 

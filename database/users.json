@@ -1,18 +1,18 @@
 [
     {
-        "firstName": "Andrei",
-        "lastName": "Vangu",
-        "email": "andrei123@yahoo.com",
-        "password": "AAAaaa1",
-        "gender": "male",
-        "admin": "no"
-    },
-    {
         "firstName": "Madalin",
         "lastName": "Florea",
         "email": "madalinflorea177@yahoo.com",
         "password": "Gigel123",
         "gender": "male",
         "admin": "yes"
+    },
+    {
+        "firstName": "Andrei",
+        "lastName": "Vangu",
+        "email": "andrei123@yahoo.com",
+        "password": "AAAaaa1",
+        "gender": "male",
+        "admin": "no"
     }
 ]

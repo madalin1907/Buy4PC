@@ -148,7 +148,7 @@ input::placeholder{
     position: fixed;
     top: -75px;
 
-    animation: swipe 2s;
+    animation: swipe 1s;
 }
 
 

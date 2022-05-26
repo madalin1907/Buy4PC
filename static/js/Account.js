@@ -516,6 +516,7 @@ Array.from(buttons).forEach(button =>{
 
 
                 document.addEventListener("keydown", (e) => {
+                    e.preventDefault();
                     if (e.key === "ArrowLeft") {
                         captchaImage.style.left = Math.max(0, parseInt(window.getComputedStyle(captchaImage).getPropertyValue("left")) - 20) + "px";
                     }

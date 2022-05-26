@@ -112,6 +112,13 @@ function checkConnectedUser(){
 
 
 
+let redirectMessage = document.getElementsByClassName("RedirectMessage")[0];
+let remainingSeconds = 5;
+
+setInterval(() => {
+    redirectMessage.textContent = `You will be redirected to Home page in ${--remainingSeconds} seconds.`;
+}, 1000)
+
 
 setTimeout(() => {
     window.location = "../"
