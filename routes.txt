@@ -4,4 +4,5 @@
 /cart         -> încarcă pagina Cart
 /login        -> încarcă pagina Login
 /register     -> încarcă pagina Register
+/account      -> încarcă pagina Account
 /*            -> încarcă pagina 404 dacă se accesează o rută inexistentă

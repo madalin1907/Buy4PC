@@ -1,9 +1,10 @@
-///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
 window.onload = function() {
     switchMode(localStorage.getItem("lightMode"));
 };
 
 
+
+///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
 function switchMode(light){
     let switchButtons = document.getElementsByClassName("SwitchMode");
 
@@ -57,7 +58,7 @@ document.addEventListener("keydown", (e) =>{
         localStorage.setItem("lightMode", "false");
         switchMode("false");
     }
-    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+    if (e.key.toUpperCase() === "L" && (lightMode === "false" || !lightMode)) {
         localStorage.setItem("lightMode", "true");
         switchMode("true");
     }
@@ -84,11 +85,11 @@ submitButton.addEventListener("click", (e) =>{
     const password = document.getElementById("password").value;
     
     if (email && password){
-        fetch(`/users/check/${email}/${password}`)
+        fetch(`/users/check/${email}`)
         .then(res => res.json())
         .then(data => checkedUser = data)
         .then(() => {
-            if (checkedUser.loginStatus === "badEmail"){
+            if (checkedUser.email === "notFound" && !document.getElementsByClassName("warning").length){
                 const warning = document.createElement("div");
                 warning.classList.add("warning");
                 warning.style.animation = "swipe 3s";
@@ -101,7 +102,8 @@ submitButton.addEventListener("click", (e) =>{
 
                 return;
             }
-            if (checkedUser.loginStatus === "badPassword"){
+
+            if (checkedUser.password !== password && !document.getElementsByClassName("warning").length){
                 const warning = document.createElement("div");
                 warning.classList.add("warning");
                 warning.textContent = "Incorrect password.";
@@ -113,21 +115,43 @@ submitButton.addEventListener("click", (e) =>{
 
                 return;
             }
-            if (checkedUser.loginStatus === "good"){
+            
+            if (!document.getElementsByClassName("warning").length){
+                delete checkedUser["password"];
+
+                checkedUser["connectedSince"] = new Date();
+
                 localStorage.setItem("user", JSON.stringify(checkedUser));
                 window.location = "../";
             }
         }
     )}
     else{
-        const warning = document.createElement("div");
-        warning.classList.add("warning");
-        warning.style.animation = "swipe 2s";
-        warning.textContent = "Complete both fields.";
-        content.append(warning);
-        
-        setTimeout(() =>{
-            warning.remove();
-        }, 2000)
+        if (!document.getElementsByClassName("warning").length){
+            const warning = document.createElement("div");
+            warning.classList.add("warning");
+            warning.style.animation = "swipe 2s";
+            warning.textContent = "Complete both fields.";
+            content.append(warning);
+            
+            setTimeout(() =>{
+                warning.remove();
+            }, 2000)
+        }
     }
 })
+
+
+
+
+
+resetDefault = document.getElementsByClassName("resetDefault");
+
+Array.from(resetDefault).forEach(resetButton => {
+    resetButton.addEventListener("click", () =>{
+        if (localStorage.length){
+            localStorage.clear();
+            document.location.reload(true);
+        }
+    })
+});

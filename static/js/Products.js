@@ -1,9 +1,10 @@
-///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
 window.onload = function() {
     switchMode(localStorage.getItem("lightMode"));
+    checkConnectedUser();
 };
 
 
+///////////////////////////   Dark Mode / Light Mode   ///////////////////////////////////
 function switchMode(light){
     let switchButtons = document.getElementsByClassName("SwitchMode");
     let h1 = document.getElementsByTagName("h1");
@@ -71,7 +72,7 @@ document.addEventListener("keydown", (e) =>{
         localStorage.setItem("lightMode", "false");
         switchMode("false");
     }
-    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+    if (e.key.toUpperCase() === "L" && (lightMode === "false" || !lightMode)) {
         localStorage.setItem("lightMode", "true");
         switchMode("true");
     }
@@ -255,3 +256,45 @@ setTimeout(() => {
         }
     })  
 }, 2500)
+
+
+
+
+
+function checkConnectedUser(){
+    const user = localStorage.getItem("user");
+    if (user){
+        const DropdownContent = document.getElementsByClassName("DropdownContent")[0];
+        let links = DropdownContent.getElementsByTagName("a");
+
+        links[0].href = "../account";
+        links[0].textContent = "Your Account";
+        links[0].style.padding = "20px 15px";
+        links[0].style.fontSize = "22px";
+        links[1].remove();
+
+
+        const MobileDropdownContent = document.getElementsByClassName("MobileDropdownContent")[0];
+        let mobileLinks = MobileDropdownContent.getElementsByTagName("a");
+        
+        mobileLinks[4].href = "../account";
+        mobileLinks[4].textContent = "Your Account";
+        mobileLinks[4].style.padding = "12px 0px";
+        mobileLinks[5].remove();
+    }
+}
+
+
+
+
+
+resetDefault = document.getElementsByClassName("resetDefault");
+
+Array.from(resetDefault).forEach(resetButton => {
+    resetButton.addEventListener("click", () =>{
+        if (localStorage.length){
+            localStorage.clear();
+            document.location.reload(true);
+        }
+    })
+});

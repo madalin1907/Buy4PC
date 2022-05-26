@@ -17,7 +17,7 @@ const port = 3000;
 
 // --------------- RUTE PENTRU PRODUSE ---------------
 
-//Ruta care returneaza produsele din baza de date
+// Ruta care returneaza produsele din baza de date
 app.get("/products/read", (req,res) => {
     let products = require("./database/products.json");
     res.send(products);
@@ -30,6 +30,7 @@ app.get("/products/read", (req,res) => {
 
 // --------------- RUTE PENTRU UTILIZATORI ---------------
 
+// Ruta care adauga un utilizator nou in baza de date
 app.post("/users/add", (req,res) => {
     let users = require("./database/users.json");
     
@@ -52,38 +53,95 @@ app.post("/users/add", (req,res) => {
 });
 
 
-
-app.get("/users/check/:email/:password", (req,res) => {
+// Ruta care returneaza un utilizator dupa email
+app.get("/users/check/:email", (req,res) => {
     const email = req.params.email;
-    const password = req.params.password;
 
     const users = require("./database/users.json");
     
-    let checkedUser = {
-        loginStatus: "badEmail",
-    }
+    let user, ok = false;
 
     for (let i = 0; i < users.length; i++){
         if (users[i].email === email){
-            if (users[i].password === password){
-                checkedUser.loginStatus = "good";
-                checkedUser.email = users[i].email;
-            }
-            else
-                checkedUser.loginStatus = "badPassword";
-
+            ok = true;
+            user = users[i];
             break;
         }
     }
-
-    res.send(checkedUser);
+    
+    if (!ok){
+    user = {
+        email: "notFound"
+    }}
+    
+    res.send(user);
 });
 
 
+// Ruta care sterge un utilizator din baza de date
+app.delete("/users/delete/:email", (req,res) => {
+    const email = req.params.email;
+    const users = require("./database/users.json");
+    
+    for (let i = 0; i < users.length; i++){
+        if (users[i].email === email){
+            users.splice(i, 1);
+            fs.writeFileSync('./database/users.json', JSON.stringify(users, null, 4));
+            res.send();
+        }
+    }
+});
 
 
+// Ruta care modifica campul firstName al unui utilizator
+app.put("/users/edit/firstName/:email/:firstName", (req, res) => {
+    const email = req.params.email;
+    const firstName = req.params.firstName;
+
+    let users = require("./database/users.json");
+
+    for (let i = 0; i < users.length; i++){
+        if (users[i].email === email){
+            users[i].firstName = firstName;
+            fs.writeFileSync('./database/users.json', JSON.stringify(users, null, 4));
+            res.send();
+        }
+    }
+})
 
 
+// Ruta care modifica campul lastName al unui utilizator
+app.put("/users/edit/lastName/:email/:lastName", (req, res) => {
+    const email = req.params.email;
+    const lastName = req.params.lastName;
+
+    let users = require("./database/users.json");
+
+    for (let i = 0; i < users.length; i++){
+        if (users[i].email === email){
+            users[i].lastName = lastName;
+            fs.writeFileSync('./database/users.json', JSON.stringify(users, null, 4));
+            res.send();
+        }
+    }
+})
+
+
+// Ruta care modifica campul gender al unui utilizator
+app.put("/users/edit/gender/:email/:gender", (req, res) => {
+    const email = req.params.email;
+    const gender = req.params.gender;
+
+    let users = require("./database/users.json");
+
+    for (let i = 0; i < users.length; i++){
+        if (users[i].email === email){
+            users[i].gender = gender;
+            fs.writeFileSync('./database/users.json', JSON.stringify(users, null, 4));
+            res.send();
+        }
+    }
+})
 
 
 // --------------- RUTE PENTRU PAGINILE WEB ---------------
@@ -110,6 +168,10 @@ app.get("/login", (req,res) => {
 
 app.get("/register", (req,res) => {
     res.render("./pages/Register");
+});
+
+app.get("/account", (req,res) => {
+    res.render("./pages/Account");
 });
 
 app.get("*", (req, res) => {

@@ -1,9 +1,9 @@
-//////////////////////////////   Dark Mode / Light Mode   //////////////////////////////
 window.onload = function() {
     switchMode(localStorage.getItem("lightMode"));
 };
 
 
+//////////////////////////////   Dark Mode / Light Mode   //////////////////////////////
 function switchMode(light){
     let switchButtons = document.getElementsByClassName("SwitchMode");
 
@@ -57,7 +57,7 @@ document.addEventListener("keydown", (e) =>{
         localStorage.setItem("lightMode", "false");
         switchMode("false");
     }
-    if (e.key.toUpperCase() === "L" && lightMode === "false") {
+    if (e.key.toUpperCase() === "L" && (lightMode === "false" || !lightMode)) {
         localStorage.setItem("lightMode", "true");
         switchMode("true");
     }
@@ -158,7 +158,9 @@ submitButton.addEventListener("click", (e) =>{
     }
     
     let gender = document.querySelector('input[name="gender"]:checked');
-    if (!gender && !document.getElementsByClassName("warning").length){
+    if (gender)
+        gender = gender.value;
+    else if (!gender && !document.getElementsByClassName("warning").length){
         const warning = document.createElement("div");
         warning.classList.add("warning");
         warning.textContent = "Select your gender.";
@@ -170,45 +172,63 @@ submitButton.addEventListener("click", (e) =>{
 
         return;
     }
-    gender = gender.value;
-
-    const user = {
-        "firstName": firstName,
-        "lastName": lastName,
-        "email": email,
-        "password": password,
-        "gender": gender,
-        "admin": "no"
-    }
     
-    fetch("/users/add", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(user)
-    })
-    .then(res => res.text())
-    .then(data => addedUser = data)
-    .then(() =>{
-        if (addedUser === "true"){
-            const warning = document.createElement("div");
-            warning.classList.add("success");
-            warning.textContent = "Account created successfully.";
-            content.append(warning);
-            
-            setTimeout(() =>{
-                warning.remove();
-                window.location = "../login";
-            }, 2000)
+
+    
+    if (!document.getElementsByClassName("warning").length) {
+        const user = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "password": password,
+            "gender": gender,
+            "admin": "no"
         }
-        else{
-            const warning = document.createElement("div");
-            warning.classList.add("warning");
-            warning.textContent = "This email is currently in use.";
-            content.append(warning);
-            
-            setTimeout(() =>{
-                warning.remove();
-            }, 1200)
-        }
-    })
+        
+        fetch("/users/add", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(user)
+        })
+        .then(res => res.text())
+        .then(data => addedUser = data)
+        .then(() =>{
+            if (addedUser === "true"){
+                const warning = document.createElement("div");
+                warning.classList.add("success");
+                warning.textContent = "Account created successfully.";
+                content.append(warning);
+                
+                setTimeout(() =>{
+                    warning.remove();
+                    window.location = "../login";
+                }, 2000)
+            }
+            else{
+                const warning = document.createElement("div");
+                warning.classList.add("warning");
+                warning.textContent = "This email is currently in use.";
+                content.append(warning);
+                
+                setTimeout(() =>{
+                    warning.remove();
+                }, 1200)
+            }
+        })
+    }
 })
+
+
+
+
+
+resetDefault = document.getElementsByClassName("resetDefault");
+
+Array.from(resetDefault).forEach(resetButton => {
+    resetButton.addEventListener("click", () =>{
+        if (localStorage.length){
+            localStorage.clear();
+            document.location.reload(true);
+        }
+    })
+});

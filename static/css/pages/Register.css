@@ -151,12 +151,6 @@ input::placeholder{
     animation: swipe 2s;
 }
 
-@keyframes swipe {
-    10% {top: 80px; }
-    80% {top: 80px; }
-    100% {top: -75px; }
-}
-
 
 
 @media (max-width: 420px) {
