@@ -606,9 +606,7 @@ resetDefault = document.getElementsByClassName("resetDefault");
 
 Array.from(resetDefault).forEach(resetButton => {
     resetButton.addEventListener("click", () =>{
-        if (localStorage.length){
-            localStorage.clear();
-            window.location = "../";
-        }
+        localStorage.clear();
+        window.location = "../";
     })
 });

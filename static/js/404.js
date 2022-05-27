@@ -123,3 +123,18 @@ setInterval(() => {
 setTimeout(() => {
     window.location = "../"
 }, 5000)
+
+
+
+
+
+
+resetDefault = document.getElementsByClassName("resetDefault");
+
+Array.from(resetDefault).forEach(resetButton => {
+    resetButton.addEventListener("click", () =>{
+        if (localStorage.length)
+            localStorage.clear();
+        window.location = "../";
+    })
+});

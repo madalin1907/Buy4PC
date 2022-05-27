@@ -8,10 +8,10 @@
         "admin": "yes"
     },
     {
-        "firstName": "Andrei",
-        "lastName": "Vangu",
-        "email": "andrei123@yahoo.com",
-        "password": "AAAaaa1",
+        "firstName": "Ion",
+        "lastName": "Popescu",
+        "email": "ion123@yahoo.com",
+        "password": "IonIon1",
         "gender": "male",
         "admin": "no"
     }

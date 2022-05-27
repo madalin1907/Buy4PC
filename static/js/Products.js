@@ -343,9 +343,8 @@ resetDefault = document.getElementsByClassName("resetDefault");
 
 Array.from(resetDefault).forEach(resetButton => {
     resetButton.addEventListener("click", () =>{
-        if (localStorage.length){
+        if (localStorage.length)
             localStorage.clear();
-            document.location.reload(true);
-        }
+        window.location = "/";
     })
 });
